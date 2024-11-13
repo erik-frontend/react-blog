@@ -2,17 +2,16 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Header from '../header/Header'
 import Footer from '../footer/Footer'
-import Nav from '../nav/Nav'
+import { posts } from '../../utils/posts'
 
 const Layout = () => {
   return (
     <>
       <Header/>
-      <Nav/>
       <main>
           <Outlet/>
       </main>
-      <Footer/>
+      <Footer lenght={posts.length}/>
     </>
   )
 }

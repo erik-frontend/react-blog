@@ -1,9 +1,10 @@
 import React from 'react'
-
-const Footer = () => {
+import "./footer.scss"
+const Footer = ({lenght}) => {
     const year = new Date()
   return (
-    <footer>
+    <footer className='footer'>
+        <p className="total-items">Total {lenght} {lenght <= 1 ? "post" : "posts"}</p>
         <p className="copyright">All right recivde {year.getFullYear()}</p>
     </footer>
   )

@@ -1,0 +1,30 @@
+.posts {
+    padding: 50px 15px;
+
+    &-link {
+        margin-bottom: 50px;
+        display: block;
+        box-shadow: 5px 3px 9px #000000a3;
+        padding: 10px;
+        transition: .5s linear;
+
+        &:hover {
+            transform: translateY(10px);
+        }
+
+        h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .post-data {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .post-body {
+            font-size: 20px;
+        }
+    }
+}
