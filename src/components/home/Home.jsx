@@ -1,10 +1,20 @@
 import React from 'react'
 import Posts from '../posts/Posts'
 
-const Home = () => {
+const Home = ({allPosts, search, setSearch}) => {
+  console.log(allPosts);
+  
   return (
     <>
-    <Posts/>
+    <form className='searchForm' onSubmit={e=> e.preventDefault()}>
+      <input type="text" 
+        id='search'
+        placeholder='search post'
+        value={search}
+        onChange={e => setSearch(e.target.value)}
+      />
+    </form>
+    <Posts allPosts={allPosts}/>
     </>
   )
 }

@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
-import { posts } from '../../utils/posts'
 import { Link } from 'react-router-dom'
 import "./style.scss"
 
-const Posts = () => {
+const Posts = ({allPosts}) => {
+    console.log(allPosts);
+    
     return (
         <article className='posts'>
-            {posts.length > 0 ? (
-                posts.map(post => {
+            {allPosts.length > 0 ? (
+                allPosts.map(post => {
                     const {body, datetime, id, title} = post
                     return (
                          <Link className='posts-link' key={id} to={`/post/${id}`}>
