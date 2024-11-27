@@ -8,6 +8,8 @@ import Contact from './pages/contact/Contact'
 import { posts } from './utils/posts'
 import Posts from './components/posts/Posts'
 import { Error } from './pages/error/Error'
+import NewPost from './pages/newPost/NewPost'
+import { format } from 'date-fns'
 
 function App() {
   const [allPosts, setAllPosts] = useState(() => {
@@ -17,11 +19,33 @@ function App() {
   const [search, setSearch] = useState("")
   const [searchResult, setSearchResult] = useState([])
   const navigate = useNavigate()
+  // NewPost
+  const [postTitle, setPostTitle] = useState("")
+  const [postBody, setPostBody] = useState("")
 
   const handleDelete = (id) => {
     const postList = allPosts.filter(post => post.id !== id)
     setAllPosts(postList)
     localStorage.setItem("posts", JSON.stringify(postList))
+    navigate("/")
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const id = allPosts.length ? allPosts[allPosts.length - 1].id + 1 : 1 
+
+    const dateTime = format(new Date(), "MMM dd, yyyy pp")
+    const newPost = {
+      id,
+      title: postTitle,
+      body: postBody,
+      datetime: dateTime
+    }
+    const updatePosts = [...allPosts, newPost]
+    setAllPosts(updatePosts)
+    localStorage.setItem("posts", JSON.stringify(updatePosts))
+    setPostTitle("")
+    setPostBody("")
     navigate("/")
   }
 
@@ -32,6 +56,10 @@ function App() {
     )
     setSearchResult(filterPost.reverse())
   }, [allPosts, search])
+
+  useEffect(() => {
+    localStorage.setItem("posts", JSON.stringify(allPosts))
+  }, [allPosts])
   return (
     <Routes>
       <Route path='/' element={<Layout
@@ -45,6 +73,13 @@ function App() {
         <Route element={<Post handleDelete={handleDelete} />} path='post/:id' />
         <Route element={<About />} path='about' />
         <Route element={<Contact />} path='contact' />
+        <Route element={<NewPost 
+          postTitle={postTitle}
+          postBody={postBody}
+          setPostTitle={setPostTitle}
+          setPostBody={setPostBody}
+          handleSubmit={handleSubmit}
+        />} path='post' />
         <Route path='*' element={<Error/>}/>
       </Route>
     </Routes>
