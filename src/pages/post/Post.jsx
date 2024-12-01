@@ -1,10 +1,13 @@
 import React from 'react'
 import { posts } from '../../utils/posts'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import "./post.scss"
 
 const Post = ({handleDelete}) => {
   const {id} = useParams()
+  const navigate = useNavigate()
+  // console.log(navigate);
+  
   //  console.log(typeof id);
   const post = posts.find(post => (post.id).toString() === id)
   // console.log(post);
@@ -18,6 +21,7 @@ const Post = ({handleDelete}) => {
           <p className='data'>{post.datetime}</p>
           <p className='text'>{post.body}</p>
           <button onClick={() => handleDelete(post.id)} className='detele'>Delete Post</button>
+          <button onClick={() => navigate(`/edit/${post.id}`)} className='edit'>Edit Post</button>
         </>
       } {!post && 
         <>

@@ -1,4 +1,5 @@
 import React from 'react'
+import "./newPost.scss"
 
 const NewPost = ({postTitle, postBody, setPostTitle, setPostBody, handleSubmit}) => {
   return (

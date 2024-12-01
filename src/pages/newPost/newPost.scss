@@ -1,0 +1,41 @@
+.newPost {
+    padding: 50px 15px;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .newPostForm {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        max-width: 800px;
+        width: 100%;
+
+        input {
+            padding: 10px;
+            width: 100%;
+        }
+
+        textarea {
+            resize: none;
+            padding: 10px;
+            height: 100px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 20px;
+            width: 250px;
+            margin: 0 auto;
+        }
+    }
+
+    label {
+        text-transform: capitalize;
+        font-size: 20px;
+    }
+}

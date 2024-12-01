@@ -10,12 +10,15 @@ import Posts from './components/posts/Posts'
 import { Error } from './pages/error/Error'
 import NewPost from './pages/newPost/NewPost'
 import { format } from 'date-fns'
+import { id } from 'date-fns/locale'
+import EditPost from './components/editPost/EditPost'
 
 function App() {
   const [allPosts, setAllPosts] = useState(() => {
     const savedPosts = localStorage.getItem("posts")
     return savedPosts ? JSON.parse(savedPosts) : posts
   })
+
   const [search, setSearch] = useState("")
   const [searchResult, setSearchResult] = useState([])
   const navigate = useNavigate()
@@ -80,6 +83,7 @@ function App() {
           setPostBody={setPostBody}
           handleSubmit={handleSubmit}
         />} path='post' />
+        <Route path='edit/:id'allPosts={allPosts} setAllPosts={setAllPosts}/>
         <Route path='*' element={<Error/>}/>
       </Route>
     </Routes>
