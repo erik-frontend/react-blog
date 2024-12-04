@@ -27,4 +27,22 @@
             font-size: 20px;
         }
     }
+
+    .noDisplay {
+        text-align: center;
+        font-size: 30px;
+        color: red;
+    }
+
+    .btn-link {
+        width: 250px;
+        display: block;
+        background: green;
+        text-align: center;
+        padding: 10px;
+        font-size: 18px;
+        margin: 15px auto 0;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
 }

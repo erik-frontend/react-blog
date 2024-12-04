@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import "./style.scss"
 
 const Posts = ({allPosts}) => {
-    console.log(allPosts);
+    // console.log(allPosts);
     
     return (
         <article className='posts'>
@@ -21,7 +21,10 @@ const Posts = ({allPosts}) => {
                     )
                 })
             ) : (
-                <p>No display posts</p>
+                <>
+                <p className='noDisplay'>No display posts</p>
+                <Link className='btn-link' to={`/post`}>Add new Post</Link>
+                </>
             )}
         </article>
     )

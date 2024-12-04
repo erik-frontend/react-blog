@@ -35,7 +35,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const id = allPosts.length ? allPosts[allPosts.length - 1].id + 1 : 1 
+    const id = allPosts.length ? allPosts[allPosts.length - 1].id + 1 : 1
 
     const dateTime = format(new Date(), "MMM dd, yyyy pp")
     const newPost = {
@@ -76,15 +76,21 @@ function App() {
         <Route element={<Post handleDelete={handleDelete} />} path='post/:id' />
         <Route element={<About />} path='about' />
         <Route element={<Contact />} path='contact' />
-        <Route element={<NewPost 
+        <Route element={<NewPost
           postTitle={postTitle}
           postBody={postBody}
           setPostTitle={setPostTitle}
           setPostBody={setPostBody}
           handleSubmit={handleSubmit}
         />} path='post' />
-        <Route path='edit/:id'allPosts={allPosts} setAllPosts={setAllPosts}/>
-        <Route path='*' element={<Error/>}/>
+        <Route
+          path='edit/:id'
+          element={<EditPost
+            allPosts={allPosts}
+            setAllPosts={setAllPosts}
+          />}
+        />
+        <Route path='*' element={<Error />} />
       </Route>
     </Routes>
   )
