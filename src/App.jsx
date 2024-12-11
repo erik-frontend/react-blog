@@ -22,6 +22,7 @@ function App() {
   const [search, setSearch] = useState("")
   const [searchResult, setSearchResult] = useState([])
   const navigate = useNavigate()
+  
   // NewPost
   const [postTitle, setPostTitle] = useState("")
   const [postBody, setPostBody] = useState("")
