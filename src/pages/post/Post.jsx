@@ -3,13 +3,13 @@ import { posts } from '../../utils/posts'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import "./post.scss"
 
-const Post = ({handleDelete}) => {
+const Post = ({handleDelete, allPosts}) => {
   const {id} = useParams()
   const navigate = useNavigate()
   // console.log(navigate);
   
   //  console.log(typeof id);
-  const post = posts.find(post => (post.id).toString() === id)
+  const post = allPosts.find(post => (post.id).toString() === id)
   // console.log(post);
 
   

@@ -74,7 +74,9 @@ function App() {
           search={search}
           setSearch={setSearch}
         />} index />
-        <Route element={<Post handleDelete={handleDelete} />} path='post/:id' />
+        <Route element={<Post 
+          allPosts={allPosts}
+          handleDelete={handleDelete} />} path='post/:id' />
         <Route element={<About />} path='about' />
         <Route element={<Contact />} path='contact' />
         <Route element={<NewPost
