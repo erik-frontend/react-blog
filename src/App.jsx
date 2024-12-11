@@ -16,7 +16,7 @@ import EditPost from './components/editPost/EditPost'
 function App() {
   const [allPosts, setAllPosts] = useState(() => {
     const savedPosts = localStorage.getItem("posts")
-    return savedPosts ? JSON.parse(savedPosts) : posts
+    return savedPosts ? JSON.parse(savedPosts) : []
   })
 
   const [search, setSearch] = useState("")
